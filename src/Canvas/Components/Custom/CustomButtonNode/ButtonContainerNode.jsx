@@ -11,7 +11,7 @@ const ButtonContainerNode = ({ data: old }) => {
     updateNode(old.id, updatedBtnNode)
   }
   const { data } = storeNode || {}
-
+  console.log(data)
   return (
     <div className='bg-white border border-blue-500 rounded-lg py-4 flex flex-col items-center w-48'>
       <Handle
@@ -22,9 +22,7 @@ const ButtonContainerNode = ({ data: old }) => {
       />
       <div className='flex flex-col items-center w-full'>
         <strong className='text-lg mb-2'>{data?.label}</strong>
-        <p className='text-xs'>
-          Question:Are you willing to enter your details?
-        </p>
+        <p className='text-xs'>{data.info}</p>
         <div className='flex flex-col gap-2 w-full'>
           {data?.buttons?.map((buttonData, index) => (
             <ButtonNode
@@ -32,7 +30,7 @@ const ButtonContainerNode = ({ data: old }) => {
               data={buttonData}
             />
           ))}
-          {!data?.updated && (
+          {!data?.updated && !data?.hideAddButton && (
             <ButtonNode
               hideHandle
               data={{ label: 'Add No Button', onclick: handleButtonClick }}

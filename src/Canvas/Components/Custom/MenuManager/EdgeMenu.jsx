@@ -1,6 +1,5 @@
 import React, { useCallback } from 'react'
-import { useReactFlow } from '@xyflow/react'
-import MenuBar from '../../../../SharedComponents/Menu'
+import useCanvasStore from '../../../../store'
 
 export default function ContextMenu({
   id,
@@ -10,30 +9,17 @@ export default function ContextMenu({
   bottom,
   ...props
 }) {
-  const { getNode, setNodes, addNodes, setEdges, getEdge } = useReactFlow()
+  const removeEdgeById = useCanvasStore((store) => store.removeEdgeById)
 
-  //   // Duplicate node functionality
-  //   const duplicateNode = useCallback(() => {
-  //     const node = getNode(id)
-  //     const position = {
-  //       x: node.position.x + 50,
-  //       y: node.position.y + 50,
-  //     }
-
-  //     addNodes({
-  //       ...node,
-  //       selected: false,
-  //       dragging: false,
-  //       id: `${node.id}-copy`,
-  //       position,
-  //     })
-  //   }, [id, getNode, addNodes])
-
-  //   // Delete node functionality
-  //   const deleteNode = useCallback(() => {
-  //     setNodes((nodes) => nodes.filter((node) => node.id !== id))
-  //     setEdges((edges) => edges.filter((edge) => edge.source !== id))
-  //   }, [id, setNodes, setEdges])
+  const deleteEdge = () => {
+    removeEdgeById(id)
+  }
+  const create = () => {
+    //TODO
+    //CREATE A NEW EDGE
+    //UPDATE EXISING END
+    //ADD NODE AS WELL
+  }
 
   return (
     <div
@@ -41,8 +27,8 @@ export default function ContextMenu({
       className='absolute bg-white border border-gray-300 shadow-md z-10 p-2'
       {...props}
     >
-      delete edge
-      <MenuBar close={props.onClick} />
+      <div onClick={deleteEdge}> delete edge</div>
+      <div onClick={create}>Add Generic</div>
     </div>
   )
 }

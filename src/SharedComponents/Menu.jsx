@@ -1,11 +1,11 @@
-import { buttonNode, finalNode, genericNode } from '../Canvas/data'
+import { buttonNode, exitButton, finalNode, genericNode } from '../Canvas/data'
 import useCanvasStore from '../store'
 
 export default function MenuBar({ close, source, handleID, target }) {
   const addNode = useCanvasStore((store) => store.addNode)
 
   const onButtonClick = () => {
-    addNode(buttonNode, source, handleID, target)
+    addNode(exitButton, source, handleID, target)
     close()
   }
   const onGoodByeClick = () => {

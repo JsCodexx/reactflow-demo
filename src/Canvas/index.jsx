@@ -11,7 +11,7 @@ import {
 } from '@xyflow/react'
 
 import '@xyflow/react/dist/style.css'
-import { edgeType, initialEdges, initialNodes, nodeTypes } from './data'
+import { edgeType, nodeTypes } from './data'
 import useCanvasStore from '../store'
 import ContextMenu from './Components/Custom/MenuManager/EdgeMenu'
 
@@ -96,6 +96,7 @@ const ReactFlowCanvas = () => {
       onConnect={onConnect}
       fitView
       attributionPosition='top-right'
+      onClick={onPaneClick}
     >
       <Background variant={BackgroundVariant.Dots} />
       {menu && (

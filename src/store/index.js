@@ -72,7 +72,9 @@ const createNodeSlice = (set, get) => ({
   updateNodeById: (id, updatedNode) =>
     set((state) => ({
       nodes: state.nodes.map((node) =>
-        node.id === id ? { ...node, ...updatedNode } : node
+        node.id === id
+          ? { ...node, ...updatedNode, position: node.position }
+          : node
       ),
     })),
 
@@ -99,6 +101,9 @@ const createEdgeSlice = (set, get) => ({
     }))
   },
 
+  pushEdge: (edge) => {
+    set((state) => ({ edgee: [...state.edges, edge] }))
+  },
   getEdgeById: (id) => get().edges.find((edge) => edge.id === id),
 
   updateEdgeById: (id, updatedEdge) =>
