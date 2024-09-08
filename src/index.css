@@ -16,3 +16,30 @@ body,
 .react-flow.light {
   z-index: 3 !important;
 }
+
+/* Scrollbar width */
+::-webkit-scrollbar {
+  width: 5px; /* Set the width of the scrollbar */
+}
+
+/* Scrollbar track (path) */
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Light background for the track */
+  border-radius: 4px; /* Rounded corners for the track */
+}
+
+/* Scrollbar thumb (scroll handle) */
+::-webkit-scrollbar-thumb {
+  background-color: #c9c8c8; /* Darker gray for the thumb */
+  border-radius: 10px; /* Rounded corners for the thumb */
+}
+
+/* Scrollbar thumb hover effect */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Darker thumb on hover */
+}
+
+/* Optional: Scrollbar corner where horizontal and vertical bars meet */
+::-webkit-scrollbar-corner {
+  background-color: #f1f1f1; /* Match the track background */
+}
